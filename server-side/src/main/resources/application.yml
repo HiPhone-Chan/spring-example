@@ -1,0 +1,46 @@
+server:
+  port: 8011
+spring:
+  main:
+    banner-mode: 'off'
+  application:
+    name: spring-server
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-server?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: null
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+  data:
+    rest:
+      base-path: /api
+    elasticsearch:
+      cluster-nodes: iottest.yunzjia.com:9200
+  batch:
+    schema: classpath:org/springframework/batch/core/schema-mysql.sql
+  mobile:
+    devicedelegatingviewresolver:
+      enabled: true
+logging:
+  level:
+    root: warn
+    com.chf.spring: info
+  pattern:
+    level: info
+    console: -%d [%-5p] [%t] %replace(%caller{1}){'Caller\+0\t at ', ''} - %m%n
+chf:
+  swagger:
+    title: chf API
+    description: chf API documentation
+    version: version 1.0
+    termsOfServiceUrl: http://springfox.io
+    contact:
+      name: Hiphone
+      url: null
+      email: hi.phone.chan@gmail.com
+    license: Apache License Version 2.0
+    licenseUrl: https://github.com/springfox/springfox/blob/master/LICENSE

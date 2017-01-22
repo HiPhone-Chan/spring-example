@@ -1,0 +1,41 @@
+server:
+  port: 8022
+spring:
+  main:
+    banner-mode: 'off'
+  resources:
+    chain:
+      enabled: true
+  application:
+    name: spring-client
+  datasource:
+    url: jdbc:mysql://localhost:3306/spring-client?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: null
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    show-sql: true
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+security:
+  oauth2:
+    client:
+      client-id: acme
+      client-secret: acmesecret
+      scope: read,write
+      auto-approve-scopes: .*
+logging:
+  level:
+    root: warn
+    com.chf.spring: debug
+chf:
+  github:
+    client:
+      clientId: 49ce0969b82a9f9e81ee
+      clientSecret: c931b88b3f5533a02df585056ae893a3c7c29488
+      accessTokenUri: https://github.com/login/oauth/access_token
+      userAuthorizationUri: https://github.com/login/oauth/authorize
+      clientAuthenticationScheme: form
+    resource:
+      userInfoUri: https://api.github.com/user
